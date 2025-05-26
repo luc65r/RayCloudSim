@@ -1,0 +1,37 @@
+Coût associé : -8000.0
+         7255998569 function calls (7151690971 primitive calls) in 4777.858 seconds
+
+   Ordered by: cumulative time
+   List reduced from 952 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+  596/495    0.705    0.001 9719.277   19.635 /home/alvis/anaconda3/lib/python3.12/threading.py:637(wait)
+     2500    2.182    0.001 3342.167    1.337 /home/alvis/cours/pfe/raycloudsim/pfe/pso.py:135(update_position)
+2551/2502  226.688    0.089 3313.545    1.324 /home/alvis/cours/pfe/raycloudsim/pfe/pso.py:43(evaluate)
+     2601    0.049    0.000 2330.340    0.896 /home/alvis/anaconda3/lib/python3.12/concurrent/futures/_base.py:612(result_iterator)
+     2550    0.008    0.000 2102.614    0.825 /home/alvis/anaconda3/lib/python3.12/concurrent/futures/process.py:636(_chain_from_iterable_of_lists)
+22959000/22512998   22.691    0.000 1574.488    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/pandas/core/indexing.py:1089(__getitem__)
+22959000/22513223   43.222    0.000 1460.578    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/pandas/core/indexing.py:1623(_getitem_axis)
+   116/66    0.002    0.000 1317.881   19.968 /home/alvis/anaconda3/lib/python3.12/threading.py:1117(join)
+   116/66    0.002    0.000 1317.878   19.968 /home/alvis/anaconda3/lib/python3.12/threading.py:1155(_wait_for_tstate_lock)
+22959000/22514335   56.562    0.000 1271.387    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/pandas/core/frame.py:3639(_ixs)
+       51    0.000    0.000 1243.377   24.380 /home/alvis/anaconda3/lib/python3.12/concurrent/futures/_base.py:646(__exit__)
+       50    0.010    0.000 1168.856   23.377 /home/alvis/anaconda3/lib/python3.12/concurrent/futures/process.py:864(shutdown)
+       50    0.002    0.000 1166.013   23.320 /home/alvis/anaconda3/lib/python3.12/concurrent/futures/process.py:340(run)
+       50    0.001    0.000 1166.010   23.320 /home/alvis/anaconda3/lib/python3.12/concurrent/futures/process.py:574(join_executor_internals)
+       50    0.003    0.000 1166.010   23.320 /home/alvis/anaconda3/lib/python3.12/concurrent/futures/process.py:578(_join_executor_internals)
+22967500/22588490   18.523    0.000 1161.336    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:181(step)
+      300    0.005    0.000 1159.662    3.866 /home/alvis/anaconda3/lib/python3.12/multiprocessing/util.py:208(__call__)
+       50    0.000    0.000 1159.657   23.193 /home/alvis/anaconda3/lib/python3.12/multiprocessing/queues.py:147(join_thread)
+     2600    0.039    0.000 1149.646    0.442 /home/alvis/anaconda3/lib/python3.12/concurrent/futures/process.py:415(wait_result_broken_or_wakeup)
+       50    0.003    0.000 1137.224   22.744 /home/alvis/anaconda3/lib/python3.12/multiprocessing/queues.py:214(_finalize_join)
+2551/2509    0.008    0.000 1040.524    0.415 /home/alvis/cours/pfe/raycloudsim/core/env.py:141(run)
+22959459/22589655   20.523    0.000 1022.833    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/events.py:387(_resume)
+2551/2509    4.346    0.002  966.074    0.385 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:206(run)
+22959459/22607759    8.704    0.000  942.711    0.000 {method 'send' of 'generator' objects}
+     7750    0.051    0.000  898.749    0.116 /home/alvis/anaconda3/lib/python3.12/multiprocessing/connection.py:1122(wait)
+     7750    0.048    0.000  898.011    0.116 /home/alvis/anaconda3/lib/python3.12/selectors.py:402(select)
+     7750  897.952    0.116  897.952    0.116 {method 'poll' of 'select.poll' objects}
+24177006/23286768   70.545    0.000  844.294    0.000 /home/alvis/cours/pfe/raycloudsim/core/env.py:164(_process_task)
+22959000/22518873  201.980    0.000  817.192    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/pandas/core/internals/managers.py:1027(fast_xs)
+23093273/22360832   38.998    0.000  602.452    0.000 /home/alvis/cours/pfe/raycloudsim/core/env.py:210(_handle_task_transmission)

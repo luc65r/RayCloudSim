@@ -411,15 +411,11 @@ class Env:
     def reset(self):
         """Reset the simulation environment to its initial state.
 
-        This includes interrupting active tasks, clearing task and logger information,
-        and resetting the scenario.
+        This includes clearing active tasks, resetting the scenario and logger, and clearing task info.
         """
-        # Interrupt all active tasks to stop their processes
-        for task_process in self.active_tasks.values():
-            if task_process.is_alive:
-                task_process.interrupt()
-        self.active_tasks.clear() # Clear the dictionary of active tasks
-        self.task_count = 0 # Reset the processed task counter
+        # Just clear the active tasks (do not check is_alive, as these are Task objects)
+        self.active_tasks.clear()  # Clear the dictionary of active tasks
+        self.task_count = 0  # Reset the processed task counter
 
         # Reset the scenario and the logger
         self.scenario.reset()
@@ -427,6 +423,7 @@ class Env:
         # Clear the done task collector and the list of completed task info
         self.done_task_collector.items.clear()
         self.done_task_info.clear()
+        self.controller = simpy.Environment()
 
     def close(self):
         """Clean up and finalize the simulation environment.
