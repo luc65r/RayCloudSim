@@ -180,7 +180,7 @@ def eval_worker(args):
         with open(f'/tmp/eval_worker_error_{os.getpid()}.log', 'w') as f:
             f.write("Exception in eval_worker:\n")
             traceback.print_exc(file=f)
-        return float('inf')
+        return float('-inf')
 
 def pso():
     """
