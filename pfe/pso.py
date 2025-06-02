@@ -213,12 +213,10 @@ def run_pso(
         dict: {'best_position': ..., 'best_score': ..., 'avg_scores': ..., 'best_scores': ..., 'min_scores': ..., 'max_scores': ...}
     """
     # Prepare swarm
-    with ThreadPoolExecutor(max_workers=os.cpu_count()) as executor:
-        swarm = list(tqdm(
-            executor.map(partial(create_particle, flag, data_np, col_idx), range(population_size)),
-            total=population_size,
-            desc="Initializing swarm"
-        ))
+    swarm = [
+        create_particle(flag, data_np, col_idx, i)
+        for i in tqdm(range(population_size), desc="Initializing swarm")
+    ]
     best_particle = max(swarm, key=lambda p: p.score)
     global_best = best_particle.best_position
     global_best_score = best_particle.score
