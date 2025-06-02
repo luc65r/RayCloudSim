@@ -1,0 +1,134 @@
+         310300 function calls (310295 primitive calls) in 0.064 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.064    0.064 /home/alvis/cours/pfe/raycloudsim/pfe/profile_round_robin.py:14(run_simulation)
+        1    0.000    0.000    0.064    0.064 /home/alvis/cours/pfe/raycloudsim/core/env.py:141(run)
+        1    0.004    0.004    0.064    0.064 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:206(run)
+    30001    0.009    0.000    0.059    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:181(step)
+    30000    0.009    0.000    0.047    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/events.py:387(_resume)
+    30000    0.005    0.000    0.035    0.000 {method 'send' of 'generator' objects}
+    20000    0.009    0.000    0.020    0.000 /home/alvis/cours/pfe/raycloudsim/core/env.py:460(_track_node_energy)
+    30000    0.006    0.000    0.017    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/events.py:229(__init__)
+    30004    0.006    0.000    0.011    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:164(schedule)
+    10000    0.004    0.000    0.010    0.000 /home/alvis/cours/pfe/raycloudsim/core/env.py:348(_monitor_done_task_collector)
+    30001    0.003    0.000    0.003    0.000 {built-in method _heapq.heappop}
+    30004    0.002    0.000    0.002    0.000 {built-in method _heapq.heappush}
+    30001    0.002    0.000    0.002    0.000 {method 'append' of 'list' objects}
+    30004    0.002    0.000    0.002    0.000 {built-in method builtins.next}
+    10003    0.001    0.000    0.001    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:22(__init__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/env.py:88(__init__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/env.py:411(reset)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:42(load_config)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:272(reset)
+        2    0.000    0.000    0.000    0.000 /home/alvis/anaconda3/lib/python3.12/json/__init__.py:274(load)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:89(init_infrastructure_links)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:243(add_bilateral_links)
+        2    0.000    0.000    0.000    0.000 /home/alvis/anaconda3/lib/python3.12/json/__init__.py:299(loads)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:47(init_infrastructure_nodes)
+        2    0.000    0.000    0.000    0.000 /home/alvis/anaconda3/lib/python3.12/json/decoder.py:332(decode)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:224(get_links)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/infrastructure.py:121(get_links)
+        2    0.000    0.000    0.000    0.000 {built-in method _io.open}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/function.py:862(get_edge_attributes)
+        2    0.000    0.000    0.000    0.000 /home/alvis/anaconda3/lib/python3.12/json/decoder.py:343(raw_decode)
+        3    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:61(bind_early)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:104(__init__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:220(get_nodes)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/infrastructure.py:113(get_nodes)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/function.py:700(get_node_attributes)
+      3/2    0.000    0.000    0.000    0.000 /home/alvis/anaconda3/lib/python3.12/functools.py:977(__get__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/infrastructure.py:50(add_link)
+        6    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/infrastructure.py:25(add_node)
+        2    0.000    0.000    0.000    0.000 {method 'read' of '_io.TextIOWrapper' objects}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/infrastructure.py:21(__init__)
+        4    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/infrastructure.py:83(get_node)
+        3    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/events.py:332(__init__)
+        1    0.000    0.000    0.000    0.000 <frozen posixpath>:179(dirname)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/multidigraph.py:285(__init__)
+    21/17    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/multidigraph.py:400(add_edge)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/link.py:22(__init__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/multidigraph.py:571(edges)
+        6    0.000    0.000    0.000    0.000 <frozen _collections_abc>:892(__iter__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:82(get_location)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/digraph.py:322(__init__)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        3    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/events.py:259(__init__)
+       12    0.000    0.000    0.000    0.000 {built-in method builtins.getattr}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/resources/store.py:78(__init__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/node.py:206(reset)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/reportviews.py:1364(__call__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/anaconda3/lib/python3.12/typing.py:1221(__instancecheck__)
+        2    0.000    0.000    0.000    0.000 {method '__exit__' of '_io._IOBase' objects}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/reportviews.py:1065(__init__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/link.py:51(_calculate_distance)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/node.py:48(__init__)
+        4    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/resources/base.py:169(__init__)
+        1    0.000    0.000    0.000    0.000 <frozen posixpath>:71(join)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/utils.py:37(cal_dis_euclidean)
+        2    0.000    0.000    0.000    0.000 <frozen codecs>:319(decode)
+        2    0.000    0.000    0.000    0.000 /home/alvis/anaconda3/lib/python3.12/typing.py:1492(__subclasscheck__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:79(callback)
+        2    0.000    0.000    0.000    0.000 <frozen _collections_abc>:823(items)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/reportviews.py:905(__init__)
+        3    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/reportviews.py:947(<genexpr>)
+        8    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/reportviews.py:188(__getitem__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/node.py:280(reset)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/digraph.py:426(add_node)
+       12    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:52(__get__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/multidigraph.py:367(succ)
+        2    0.000    0.000    0.000    0.000 <frozen posixpath>:41(_get_sep)
+        4    0.000    0.000    0.000    0.000 {method 'match' of 're.Pattern' objects}
+        2    0.000    0.000    0.000    0.000 <frozen codecs>:309(__init__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/graph.py:702(nodes)
+        5    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/reportviews.py:185(__iter__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/reportviews.py:946(__iter__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/multigraph.py:386(new_edge_key)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/policies/demo/demo_round_robin.py:5(__init__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/node.py:235(__init__)
+        2    0.000    0.000    0.000    0.000 {built-in method math.sqrt}
+        6    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/graph.py:457(__contains__)
+       12    0.000    0.000    0.000    0.000 {built-in method builtins.setattr}
+        2    0.000    0.000    0.000    0.000 {built-in method _codecs.utf_8_decode}
+       10    0.000    0.000    0.000    0.000 {method 'clear' of 'list' objects}
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/link.py:132(reset)
+        3    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 <frozen _collections_abc>:845(__init__)
+        4    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
+        3    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 {built-in method posix.fspath}
+        3    0.000    0.000    0.000    0.000 {method 'items' of 'mappingproxy' objects}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/env.py:36(__init__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/env.py:75(reset)
+        3    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+        5    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/utils.py:64(__init__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/graph.py:59(__set__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/digraph.py:37(__set__)
+        2    0.000    0.000    0.000    0.000 {method 'clear' of 'collections.deque' objects}
+        1    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/events.py:86(__init__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/coreviews.py:44(__init__)
+        3    0.000    0.000    0.000    0.000 {method 'clear' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/reportviews.py:178(__init__)
+        2    0.000    0.000    0.000    0.000 <frozen codecs>:260(__init__)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/utils.py:80(loc)
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.iter}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/events.py:145(value)
+        1    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/events.py:113(ok)
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/reportviews.py:921(<lambda>)
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.issubclass}
+        2    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/simpy/core.py:115(now)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/digraph.py:63(__set__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/core/base_scenario.py:124(_calculate_base_latency)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/policies/base_policy.py:7(__init__)
+        1    0.000    0.000    0.000    0.000 /home/alvis/cours/pfe/raycloudsim/.venv/lib/python3.12/site-packages/networkx/classes/multidigraph.py:842(is_multigraph)
+
+
