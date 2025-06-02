@@ -14,4 +14,6 @@ dependencies = [
     "simpy==4.1.1",
     "tensorboard==2.14.0",
     "tqdm==4.66.2",
+    "gymnasium>=0.28.1",        # modern gym, compatible with stable-baselines3
+    "stable-baselines3>=2.0.0",
 ]
