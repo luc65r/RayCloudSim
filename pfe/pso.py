@@ -94,12 +94,14 @@ def evaluate(position, col_idx, env):
     avg_latency = AvgLatency().eval(env.logger.task_info)
     env.reset()
     env.scenario.reset()
+    
     # Higher is better: prioritize success rate, then energy (lower is better), then latency (lower is better)
     # Normalize and weight so that success rate dominates, then energy, then latency
     # All scores are positive and higher is better
     norm_success = success_rate  # already in [0,1]
     norm_energy = 1 / (1 + total_cost)  # lower energy -> closer to 1
     norm_latency = 1 / (1 + avg_latency)  # lower latency -> closer to 1
+
     # Weights: success rate is most important, then energy, then latency
     score = (norm_success * 1e6) + (norm_energy * 1e3) + (norm_latency * 1e2)
     return score
@@ -182,51 +184,60 @@ def eval_worker(args):
             traceback.print_exc(file=f)
         return float('-inf')
 
-def pso():
+def run_pso(
+    population_size=50,
+    max_iterations=50,
+    w=0.7,
+    c1=2.0,
+    c2=2.0,
+    flag=FLAG,
+    config_path=CONFIG_PATH,
+    data_np=data_np,
+    col_idx=col_idx,
+    enable_logging=True
+):
     """
-    Exécute l'algorithme PSO pour optimiser l'affectation des tâches aux machines.
-
+    Run PSO with custom hyperparameters and return best score and solution.
+    Args:
+        population_size (int): Number of particles.
+        max_iterations (int): Number of PSO epochs.
+        w (float): Inertia weight.
+        c1 (float): Cognitive coefficient.
+        c2 (float): Social coefficient.
+        flag (str): Dataset/scenario flag.
+        config_path (str): Path to scenario config.
+        data_np (np.ndarray): Task dataset as numpy array.
+        col_idx (dict): Column index mapping.
+        enable_logging (bool): Whether to print progress/logging info.
     Returns:
-        tuple: (meilleure solution trouvée, score associé)
+        dict: {'best_position': ..., 'best_score': ..., 'avg_scores': ..., 'best_scores': ..., 'min_scores': ..., 'max_scores': ...}
     """
-    data_path = f"eval/benchmarks/Pakistan/data/{FLAG}/testset.csv"
-
+    # Prepare swarm
     with ThreadPoolExecutor(max_workers=os.cpu_count()) as executor:
         swarm = list(tqdm(
-            executor.map(partial(create_particle, FLAG, data_np, col_idx), range(POPULATION_SIZE)),
-            total=POPULATION_SIZE,
+            executor.map(partial(create_particle, flag, data_np, col_idx), range(population_size)),
+            total=population_size,
             desc="Initializing swarm"
         ))
-    
     best_particle = max(swarm, key=lambda p: p.score)
     global_best = best_particle.best_position
     global_best_score = best_particle.score
-    
-    # Use a new scenario/env for global_best evaluation to avoid thread issues
-    scenario_eval = Scenario(config_file=CONFIG_PATH, flag=FLAG)
+    scenario_eval = Scenario(config_file=config_path, flag=flag)
     env_eval = Env(scenario_eval, config_file="core/configs/env_config_null.json", enable_logging=False)
-    global_best_score = evaluate(global_best,col_idx, env_eval)
+    global_best_score = evaluate(global_best, col_idx, env_eval)
     avg_scores = []
     best_scores = []
     min_scores = []
     max_scores = []
-    for iteration in trange(MAX_ITERATIONS, desc="PSO Progress"):
-        # Update velocities in main thread (fast, in-memory)
+    iterator = trange(max_iterations, desc="PSO Progress") if enable_logging else range(max_iterations)
+    for iteration in iterator:
         for particle in swarm:
-            particle.update_velocity(global_best)
-        # # Print a few particle positions for debugging
-        # print(f"Sample particle positions at epoch {iteration+1}:")
-        # for idx, particle in enumerate(swarm[:3]):
-        #     print(f"  Particle {idx}: {particle.position[:10]} ...")
-        # Prepare evaluation arguments for parallel processing
-        eval_args = [(particle.position[:], CONFIG_PATH, FLAG) for particle in swarm]
-        # Evaluate new positions in parallel using processes
-        with ProcessPoolExecutor(max_workers=os.cpu_count()) as executor:  # Limit to 8 workers to avoid OOM
+            particle.update_velocity(global_best, w=w, c1=c1, c2=c2)
+        eval_args = [(particle.position[:], config_path, flag) for particle in swarm]
+        with ProcessPoolExecutor(max_workers=os.cpu_count()) as executor:
             scores = list(executor.map(eval_worker, eval_args))
-
-        # Update particles with new positions and scores
         for idx, particle in enumerate(swarm):
-            particle.update_position()  # update position in main thread
+            particle.update_position()
             score = scores[idx]
             if score > particle.score:
                 particle.best_position = particle.position[:]
@@ -238,18 +249,24 @@ def pso():
         avg_score = sum(p.score for p in swarm) / len(swarm)
         min_score = min(p.score for p in swarm)
         max_score = max(p.score for p in swarm)
-        print(f"Epoch {iteration+1:2d}: min={min_score:.4f}, max={max_score:.4f}, avg={avg_score:.4f}, best={global_best_score:.4f}")
         avg_scores.append(avg_score)
         best_scores.append(global_best_score)
         min_scores.append(min_score)
         max_scores.append(max_score)
-    return global_best, global_best_score, avg_scores, best_scores, min_scores, max_scores
+    return {
+        'best_position': global_best,
+        'best_score': global_best_score,
+        'avg_scores': avg_scores,
+        'best_scores': best_scores,
+        'min_scores': min_scores,
+        'max_scores': max_scores
+    }
 
 # Exécution
 if __name__ == "__main__":
     profiler = cProfile.Profile()
     profiler.enable()
-    solution, cost, avg_scores, best_scores, min_scores, max_scores = pso()
+    solution, cost, avg_scores, best_scores, min_scores, max_scores = run_pso()
     profiler.disable()
     # print("Meilleure solution :", solution)
     print("Coût associé :", cost)
