@@ -4,6 +4,8 @@ This script demonstrates how to use the Pakistan dataset.
 
 import os
 import sys
+import cProfile
+import pstats
 
 current_file_path = os.path.abspath(__file__)
 current_dir = os.path.dirname(current_file_path)
@@ -20,13 +22,15 @@ from policies.demo.demo_round_robin import DemoRoundRobin
 
 
 def main():
-    flag = 'Tuple30K'
+    flag = 'Tuple1K'
     # flag = 'Tuple50K'
     # flag = 'Tuple100K'
+
+    profiler = cProfile.Profile()
     
     # Create the environment with the specified scenario and configuration files.
     scenario=Scenario(config_file=f"eval/benchmarks/Pakistan/data/{flag}/config.json", flag=flag)
-    env = Env(scenario, config_file="core/configs/env_config_null.json", enable_logging=True)
+    env = Env(scenario, config_file="core/configs/env_config_null.json", enable_logging=False)
 
     # Load the test dataset.
     data = pd.read_csv(f"eval/benchmarks/Pakistan/data/{flag}/testset.csv")
@@ -34,6 +38,7 @@ def main():
     # Init the policy.
     policy = DemoRoundRobin()
 
+    profiler.enable()
     # Begin the simulation.
     until = 0
     launched_task_cnt = 0
@@ -76,7 +81,8 @@ def main():
             env.run(until=until)
         except Exception as e:
             pass
-
+    profiler.disable()
+    
     # Evaluation
     print("\n===============================================")
     print("Evaluation:")
@@ -98,6 +104,8 @@ def main():
 
     env.close()
 
+    stats = pstats.Stats(profiler).sort_stats('cumtime')
+    stats.print_stats(30)  # Print top 30 functions by cumulative time
 
 if __name__ == '__main__':
     main()
