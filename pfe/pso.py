@@ -96,7 +96,7 @@ def evaluate(position, col_idx, env):
         except Exception as e:
             pass
 
-    total_cost = sum(task.exe_energy for task in tasks)
+    #total_cost = sum(task.exe_energy for task in tasks)
     success_rate = SuccessRate().eval(env.logger.task_info)
     avg_latency = AvgLatency().eval(env.logger.task_info)
     env.reset()
@@ -110,7 +110,7 @@ def evaluate(position, col_idx, env):
     norm_latency = 1 / (1 + avg_latency)  # lower latency -> closer to 1
 
     # Weights: success rate is most important, then energy, then latency
-    score = (norm_success * 1e6) + (norm_energy * 1e3) + (norm_latency * 1e2)
+    score = (norm_success * 1e3) +  (norm_latency * 1e2) #+ (norm_energy * 1e6)
     return score
 
 class Particle:
@@ -271,9 +271,15 @@ def run_pso(
 if __name__ == "__main__":
     profiler = cProfile.Profile()
     profiler.enable()
-    solution, cost, avg_scores, best_scores, min_scores, max_scores = run_pso()
+    result = run_pso()
     profiler.disable()
-    # print("Meilleure solution :", solution)
+    solution = result['best_position']
+    cost = result['best_score']
+    avg_scores = result['avg_scores']
+    best_scores = result['best_scores']
+    min_scores = result['min_scores']
+    max_scores = result['max_scores']
+    print("Meilleure solution :", solution)
     print("Coût associé :", cost)
     import matplotlib
     matplotlib.use('Agg')
