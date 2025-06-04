@@ -88,6 +88,13 @@ def evaluate(position, col_idx, env):
 
             until += 1
 
+    # Continue the simulation until the last task successes/fails.
+    while env.task_count < launched_task_cnt:
+        until += 1
+        try:
+            env.run(until=until)
+        except Exception as e:
+            pass
 
     total_cost = sum(task.exe_energy for task in tasks)
     success_rate = SuccessRate().eval(env.logger.task_info)
