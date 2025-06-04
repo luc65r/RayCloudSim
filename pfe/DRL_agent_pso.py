@@ -68,17 +68,20 @@ if __name__ == "__main__":
     env = DummyVecEnv([lambda: env])
     #check_env(env, warn=True)
 
+    # Each PSO run takes ~2 seconds. For a reasonable experiment (~7 minutes):
+    # total_timesteps = 200 (200 PSO runs, ~400 seconds)
+    # n_steps = 8, batch_size = 8 for frequent updates
     model = PPO(
         "MlpPolicy",
         env,
-        n_steps=8,         # Collect 32 steps per update (32 PSO runs per update)
-        batch_size=8,      # Mini-batch size for optimizer (must be <= n_steps)
-        n_epochs=8,         # Number of passes over the rollout buffer per update
-        learning_rate=3e-2, # Default learning rate, tune if needed
+        n_steps=128,         # 8 PSO runs per update
+        batch_size=32,      # Mini-batch size for optimizer
+        n_epochs=10,        # Number of passes over the rollout buffer per update
+        learning_rate=3e-4, # Default learning rate, tune if needed
         gamma=0.99,         # Discount factor (default)
         verbose=1,
     )
-    model.learn(total_timesteps=40)  # ~40 minutes if PSO run ≈ 45s
+    model.learn(total_timesteps=10000)  # 200 PSO runs (~400 seconds, ~7 minutes)
 
     obs = env.reset()
     action, _ = model.predict(obs, deterministic=True)
