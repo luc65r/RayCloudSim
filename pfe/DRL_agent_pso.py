@@ -81,7 +81,7 @@ if __name__ == "__main__":
         gamma=0.99,         # Discount factor (default)
         verbose=1,
     )
-    model.learn(total_timesteps=10000)  # 200 PSO runs (~400 seconds, ~7 minutes)
+    model.learn(total_timesteps=5000)  # 200 PSO runs (~400 seconds, ~7 minutes)
 
     obs = env.reset()
     action, _ = model.predict(obs, deterministic=True)
