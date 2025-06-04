@@ -21,7 +21,7 @@ from tqdm import trange
 from tqdm import tqdm
 
 # Paramètres
-FLAG = 'Tuple30K'
+FLAG = 'Tuple1K'
 
 # Load config to determine number of machines and tasks
 def get_machine_and_task_count(config_path):
