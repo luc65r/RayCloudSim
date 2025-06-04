@@ -9,7 +9,7 @@ class Scenario(BaseScenario):
         """
         :param flag: '25N50E', '50N50E', '100N150E' or 'MilanCityCenter'
         """
-        assert flag in ['Tuple30K', 'Tuple50K', 'Tuple100K'], \
+        assert flag in ['Tuple1K', 'Tuple30K', 'Tuple50K', 'Tuple100K'], \
             f"Invalid flag={flag}"
         super().__init__(config_file)
         
