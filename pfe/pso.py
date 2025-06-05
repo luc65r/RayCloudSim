@@ -239,8 +239,8 @@ def run_pso(
         for particle in swarm:
             particle.update_velocity(global_best, w=w, c1=c1, c2=c2)
         eval_args = [(particle.position[:], config_path, flag) for particle in swarm]
-        with ProcessPoolExecutor(max_workers=os.cpu_count()) as executor:
-            scores = list(executor.map(eval_worker, eval_args))
+        #with ProcessPoolExecutor(max_workers=os.cpu_count()) as executor:
+        scores = list(map(eval_worker, eval_args))
         for idx, particle in enumerate(swarm):
             particle.update_position()
             score = scores[idx]
