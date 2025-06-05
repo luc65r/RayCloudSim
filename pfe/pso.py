@@ -222,7 +222,7 @@ def run_pso(
     # Prepare swarm
     swarm = [
         create_particle(flag, data_np, col_idx, i)
-        for i in tqdm(range(population_size), desc="Initializing swarm")
+        for i in range(population_size)
     ]
     best_particle = max(swarm, key=lambda p: p.score)
     global_best = best_particle.best_position
