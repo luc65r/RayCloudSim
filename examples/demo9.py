@@ -39,10 +39,10 @@ def main():
     config = {
         "env": {
             "dataset": "Pakistan",
-            "flag": "Tuple50K",  # Can change to Tuple50K or Tuple100K if desired.
+            "flag": "Tuple1K",  # Can change to Tuple50K or Tuple100K if desired.
             "refresh_rate": 0.001
         },
-        "policy": "DemoGreedy",
+        "policy": "DemoRandom",
     }
     
     # Initialize the logger.

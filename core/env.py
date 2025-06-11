@@ -73,7 +73,7 @@ class EnvLogger:
 class Env:
     """Simulation environment."""
 
-    def __init__(self, scenario: BaseScenario, config_file: str, verbose: bool = True, 
+    def __init__(self, scenario: BaseScenario, config_file: str, verbose: bool = False,
                  decimal_places: int = 2):
         # Load configuration file
         with open(config_file, 'r') as file:
